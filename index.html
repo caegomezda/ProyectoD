@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>    
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ENERGÍA EÓLICA</h1>
+    </header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="inicio.html" target="content-frame">Inicio</a></li>
+                <li><a href="informacion.html" target="content-frame">Información Básica</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleSubmenu()">Reportes Graficos</a>
+                    <ul class="submenu" id="submenu">
+                        <!--Abrimos el html de graficas y se abre en el IFRAME al frente-->
+                        <li><a href="graficas/graficas.html" target="content-frame">Producción de energía eólica</a></li>
+                        <li><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019284507634!2d144.9630579153167!3d-37.81410797975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1a4f4e7f0b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1611813212345!5m2!1sen!2sau" target="content-frame">Google Maps</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=Ext_rwcbE7g">Video Youtube</a></li>
+                        <li><a href="https://concepto.de/energia-eolica/"   target="content-frame">Más información</a></li>
+                    </ul>
+                </li>
+                <li><a href="inicio.html" target="content-frame">Otras energías</a></li>
+            </ul>
+        </nav>
+        <iframe name="content-frame"></iframe>
+    </div>
+    <footer>
+        <div class="columna">
+            <p>Valentina Roldan Cano</p>
+            <p>Julián David Betancurth Castaño</p>
+            <p>Camilo Eduardo Gómez Dávila</p>
+        </div>
+        <div class="columna">
+            <h3>ENERGÍA EÓLICA</h3>
+            <p>Energía renovable.</p>
+        </div>
+        <div class="columna">
+            <p>Proyecto Talento Tech.</p>
+            <p>Derechos Reservados © 2025</p>
+        </div>
+        
+    </footer>
+</body>
+</html>

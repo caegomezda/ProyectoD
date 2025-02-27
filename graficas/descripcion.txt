@@ -1,0 +1,15 @@
+
+
+DESCRIPCION: 
+WEB que permita cargar un archivo excel que contiene información de la producción y consumo de energia 
+en continentes y paises; 
+los datos se encuentran en las columnas(continente, pais, tipoEnergia, consumo, produccion) 
+
+Se requiere:
+Gráficas Pastel (Por continente, por pais), 
+Gráficas Histograma(Por continente, por pais), 
+Gráficas por Líneas(Por continente, por pais). 
+
+Al ingresar a la interfaz crear un select (Por continente, Por país)
+Al seleccionar el un continente solo se grafican los paises que pertenezcan al contiente seleccionado
+seleccionar entre dichas opciones y mostrar y/o cruzar las gráficas de produccion y consumo para comparar

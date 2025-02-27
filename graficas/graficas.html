@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas de Energía</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body> 
+    <!--Construir los Combos o cudadros combinados uno por cada tipo de gráfica PASTEL - HISTOGRAMA - LINEAS-->
+    <!--Cada combo tiene para seleccionar Continente o País;-->
+    <!--Al seleccionar se llma la función cargarGraifca con los parametros(tippo grafica Y la seleccion del combo-->
+    
+    <!--Combo o cuadro combinado para la graficas Histograma-->
+    <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Gráficas Pastel</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('pie', 'continente')">Por Continente</a></li>
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('pie', 'pais')">Por País</a></li>
+            </ul>
+        </li>
+        <!--Combo o cuadro combinado para la graficas Histograma-->
+        <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Gráficas Histograma</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('bar', 'continente')">Por Continente</a></li>
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('bar', 'pais')">Por País</a></li>
+            </ul>
+        </li>
+        
+        <!--Combo o cuadro combinado para la graficas Líneas-->
+        <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Gráficas Líneas</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('line', 'continente')">Por Continente</a></li>
+                <li><a class="dropdown-item" href="#" onclick="cargarGrafica('line', 'pais')">Por País</a></li>
+            </ul>
+        </li>
+    </ul>   
+
+    <div class="container mt-3">
+        <input type="file" id="fileInput" class="form-control mb-2" accept=".xlsx">
+        <button onclick="cargarDatos()" class="btn btn-primary">Cargar Datos</button>
+
+        <!--Combo dentro del formulario se muestra si se selecciona por paises, para pedir el continente-->
+        <select id="tipoComparacion" class="form-select mt-3" style="display:none;"></select>
+
+        <canvas id="graficaGeneral" class="mt-3"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
