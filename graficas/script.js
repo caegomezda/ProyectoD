@@ -33,14 +33,15 @@ function cargarGrafica(tipo, filtro) {
         alert('Primero cargue los datos desde un archivo Excel');
         return;
     }
-
+    console.log(datosEnergia);
+    
     const selectComparacion = document.getElementById('tipoComparacion');
     selectComparacion.innerHTML = ''; // Limpiar select antes de agregar opciones
     selectComparacion.style.display = 'none';
 
     if (filtro === 'continente') {
         const datos = filtrarDatos('continente');
-        mostrarGrafica(tipo, datos, 'Comparación Producción vs Consumo', 'graficaGeneral');
+        mostrarGrafica(tipo, datos, 'Producción energía eólica por país o continente', 'graficaGeneral');
     } else {
         selectComparacion.style.display = 'block';  //Hace visible el elemento selectComparacion
         let continentes = [...new Set(datosEnergia.map(d => d.continente))]; //Genera una lista única de continentes a partir del array datosEnergia.
@@ -54,7 +55,7 @@ function cargarGrafica(tipo, filtro) {
         selectComparacion.onchange = () => {
             const continenteSeleccionado = selectComparacion.value;
             const datos = filtrarDatosPorContinente(continenteSeleccionado);
-            mostrarGrafica(tipo, datos, 'Comparación Producción vs Consumo', 'graficaGeneral');
+            mostrarGrafica(tipo, datos, 'Producción por pais o continente', 'graficaGeneral');
         };
     }
 }
@@ -64,15 +65,15 @@ function filtrarDatos(filtro) {
     datosEnergia.forEach(d => {
         let clave = d[filtro];
         if (!agrupado[clave]) {
-            agrupado[clave] = { produccion: 0, consumo: 0 };
+            agrupado[clave] = { produccion: 0};
         }
         agrupado[clave].produccion += d.produccion;
-        agrupado[clave].consumo += d.consumo;
+        // agrupado[clave].consumo += d.consumo;
     });
     return {
         etiquetas: Object.keys(agrupado),
         produccion: Object.values(agrupado).map(v => v.produccion),
-        consumo: Object.values(agrupado).map(v => v.consumo)
+        // consumo: Object.values(agrupado).map(v => v.consumo)
     };
     //devuelve un array con los nombres de los países (las claves del objeto).
     //Object.keys(agrupado) Se usa este array como etiquetas en la gráfic
@@ -85,15 +86,15 @@ function filtrarDatosPorContinente(continente) {
     datosEnergia.filter(d => d.continente === continente).forEach(d => {
         let clave = d.pais;  //Se define clave como el nombre del país (d.pais). d es la fila
         if (!agrupado[clave]) {  //verifica si el país ya está en el objeto agrupado.
-            agrupado[clave] = { produccion: 0, consumo: 0 };
+            agrupado[clave] = { produccion: 0};
         }
         agrupado[clave].produccion += d.produccion;  //acumulador de la columna produccion
-        agrupado[clave].consumo += d.consumo;        //acumulador de la columna consumo
+        // agrupado[clave].consumo += d.consumo;        //acumulador de la columna consumo
     });
     return {
         etiquetas:  Object.keys(agrupado),  //
         produccion: Object.values(agrupado).map(v => v.produccion),
-        consumo:    Object.values(agrupado).map(v => v.consumo)
+        // consumo:    Object.values(agrupado).map(v => v.consumo)
     };
     //devuelve un array con los nombres de los países (las claves del objeto).
     //Object.keys(agrupado) Se usa este array como etiquetas en la gráfic
@@ -119,12 +120,12 @@ function mostrarGrafica(tipo, datos, titulo, canvasId) {
                     backgroundColor: '#36a2eb',
                     borderWidth: 1
                 },
-                {
-                    label: 'Consumo',
-                    data: datos.consumo,
-                    backgroundColor: '#ff6384',
-                    borderWidth: 1
-                }
+                // {
+                //     label: 'Consumo',
+                //     data: datos.consumo,
+                //     backgroundColor: '#ff6384',
+                //     borderWidth: 1
+                // }
             ]
         },
         options: {
