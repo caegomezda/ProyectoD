@@ -82,3 +82,7 @@ nav {
     line-height: 3%;
     align-items: center;
 }
+
+.img-container{
+    height: 48px !important;
+}
