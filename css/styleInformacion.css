@@ -60,3 +60,7 @@ img.card-img-top{
     flex-direction: column;
     justify-content: space-between;
 }
+
+.card-img-top{
+    margin-bottom: 25px;
+}
