@@ -12,7 +12,8 @@
     <div class="container" >
         <div class="row justify-content-center">
             <div class="form-container col-md-6 col-lg-4"> 
-                <div class="card p-4 shadow-lg container-form">
+                <div class="card p-4 shadow-lg container-form" style="    background-color: #c3e6cb;
+    border-color: #c3e6cb;">
                     <h4 class="text-center mb-3">Calculadora consumo eléctrico</h4>
                     <form id="frmNotas">
                         <div class="mb-3">
@@ -35,7 +36,8 @@
                             <label for="geotermica" class="form-label">Capacidad instalada geotérmica (kWh):</label>
                             <input type="number" class="form-control" id="geotermica" name="geotermica" placeholder="Ejemplo: 100" min="0" required>
                         </div>
-                        <button class="container-button-form" type="button" onclick="calcularRenovable()">Calcular</button>
+                        <button style="    background-color: #77dd77;
+    border-color: #77dd77;" class="container-button-form" type="button" onclick="calcularRenovable()">Calcular</button>
                         <div class="mt-3">
                             <label for="txtResultado" class="form-label">Resultado:</label>
                             <div type="text" id="txtResultado" readonly>
