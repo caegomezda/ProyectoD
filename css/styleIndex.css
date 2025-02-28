@@ -86,3 +86,38 @@ nav {
 .img-container{
     height: 48px !important;
 }
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    color: #333;
+    transition: 0.3s;
+}
+
+/* 🟢 Efecto al pasar el cursor */
+nav ul li a:hover {
+    background-color: #c3e6cb; /* Verde pastel suave */
+    color: #000;
+    border-radius: 5px;
+}
+
+/* 🔵 Efecto para el enlace activo */
+nav ul li a.active {
+    background-color: #b5d8b0; /* Verde pastel un poco más oscuro */
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -46,4 +46,15 @@ function cargarMapa() {
     document.getElementById("map").src = "https://www.openstreetmap.org/export/embed.html?bbox=-90,-60,90,60&layer=mapnik&marker=12.1067,-72.0785&marker=10.8583,-75.1316&marker=51.5074,-0.1278&marker=40.7128,-74.0060&marker=48.8566,2.3522&marker=-33.8688,151.2093&marker=-23.5505,-46.6333&marker=55.7558,37.6173&marker=35.6895,139.6917&marker=37.7749,-122.4194&marker=34.0522,-118.2437&marker=-34.6037,-58.3816&marker=52.5200,13.4050&marker=45.4215,-75.6972";
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    let links = document.querySelectorAll("nav ul li a");
+    let currentUrl = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        if (link.getAttribute("href") === currentUrl) {
+            link.classList.add("active");
+        }
+    });
+});
+
 
