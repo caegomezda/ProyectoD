@@ -1,0 +1,10 @@
+Grupo 20
+
+- Valentina Roldan Cano
+- Julián David Betancurth Castaño
+- Camilo Eduardo Gómez Dávila
+
+Actividad: Mi primera pagina Web
+
+Realiza una página web con las etiquetas básicas aprendidas. Incluye 1 párrafos que hable de cada uno de los 
+integrantes del grupo(Nombres, Profesión, Estudios....), una imagen y un link a una página externa.
