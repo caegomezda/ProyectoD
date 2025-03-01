@@ -109,6 +109,10 @@ function mostrarGrafica(tipo, datos, titulo, canvasId) {
         chartInstance.destroy();
     }
 
+    // Generar colores aleatorios o predefinidos
+    const colores = datos.etiquetas.map(() => `#${Math.floor(Math.random() * 16777215).toString(16)}`);
+
+
     let config = {
         type: tipo,
         data: {
@@ -117,39 +121,26 @@ function mostrarGrafica(tipo, datos, titulo, canvasId) {
                 {
                     label: 'Producción',
                     data: datos.produccion,
-                    backgroundColor: '#36a2eb',
+                    backgroundColor: colores,
                     borderWidth: 1
-                },
-                // {
-                //     label: 'Consumo',
-                //     data: datos.consumo,
-                //     backgroundColor: '#ff6384',
-                //     borderWidth: 1
-                // }
+                }
             ]
         },
         options: {
             responsive: true,
             plugins: {
                 title: {
-                    display: true,  // Habilita el título
-                    text: titulo,   // Texto del título
-                    font: {
-                        size: 18     // Tamaño del título
-                    },
-                    padding: {
-                        top: 10,
-                        bottom: 20
-                    }
+                    display: true,
+                    text: titulo,
+                    font: { size: 18 },
+                    padding: { top: 10, bottom: 20 }
                 },
-                tooltip: {   //cuadro emergente que aparece cuando pasas el cursor sobre un elemento del gráfico
+                tooltip: {
                     callbacks: {
                         label: function (tooltipItem) {
                             let dataset = tooltipItem.dataset;
-                            let total = dataset.data.reduce((a, b) => a + b, 0); //suma todos los valores del array para obtener el total.
+                            let total = dataset.data.reduce((a, b) => a + b, 0);
                             let porcentaje = ((tooltipItem.raw / total) * 100).toFixed(2) + '%';
-                            //tooltipItem.raw es el valor numérico del punto sobre el que pasamos el mouse.
-                            //y se aplica el porcentaje
                             return dataset.label + ': ' + tooltipItem.raw + ' (' + porcentaje + ')';
                         }
                     }
@@ -157,5 +148,6 @@ function mostrarGrafica(tipo, datos, titulo, canvasId) {
             }
         }
     };
+
     chartInstance = new Chart(ctx, config);
 }
